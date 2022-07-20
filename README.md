@@ -1,8 +1,10 @@
-# PhxFontawesome
-
-![phoenix](phoenix_logo.png)
-
-A simple mix task that generates `heex` components from Fontawesome SVG files.
+<p align="center">
+  <img src="phoenix_logo.png" height="128">
+  <h1 align="center">PhxFontawesome</h1>
+  <p align="center">
+    A simple Mix task that generates Phoenix (heex) Components from FontAwesome SVG files.
+  </p>
+</p>
 
 ## Installation
 
