@@ -1,6 +1,6 @@
 # PhxFontawesome
 
-![phx_fontawesome](phoenix_logo.svg)
+![phoenix](phoenix_logo.png)
 
 A simple mix task that generates `heex` components from Fontawesome SVG files.
 
