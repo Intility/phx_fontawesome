@@ -6,6 +6,8 @@
   </p>
 </p>
 
+![pipeline status](https://github.com/Intility/phx_fontawesome/actions/workflows/elixir.yml/badge.svg)
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
