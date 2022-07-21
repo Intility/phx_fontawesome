@@ -16,6 +16,7 @@ defmodule PhxFontawesome.MixProject do
       deps: deps(),
       package: [
         name: "phx_fontawesome",
+        organization: "intility",
         files: ~w(lib .formatter.exs mix.exs README.md LICENSE),
         licenses: ["MIT"],
         maintainers: ["Rolf Håvard Blindheim <rolf.havard.blindheim@intility.no>"],
