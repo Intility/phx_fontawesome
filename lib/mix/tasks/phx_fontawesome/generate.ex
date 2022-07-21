@@ -120,7 +120,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
         assigns =
           assigns
           |> assign_new(:class, fn -> nil end)
-          |> assign_new(:rest, fn -> assign_to_attributes(assigns, ~w(class)a) end)
+          |> assign_new(:rest, fn -> assigns_to_attributes(assigns, ~w(class)a) end)
 
         ~H\"\"\"
         #{svg_data}
