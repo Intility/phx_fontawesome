@@ -10,20 +10,16 @@
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+This package is not yet [available in Hex](https://hex.pm/docs/publish), so for now you'll have to install it
 by adding `phx_fontawesome` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:phx_fontawesome, "~> 0.1.0"}
+    {:phx_fontawesome, git: https://github.com/Intility/phx_fontawesome.git, tag: "v1.0.0"}
   ]
 end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/phx_fontawesome>.
 
 ## Generate Heex components
 
