@@ -153,7 +153,9 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
   defp stream_file(file_path) do
     File.stream!(file_path)
     |> Stream.map(&String.trim/1)
-    |> Stream.map(&String.replace(&1, ~r/<svg /, "<svg class={@class} {@rest} "))
+    |> Stream.map(
+      &String.replace(&1, ~r/<svg /, "<svg class={@class} {@rest} fill=\"currentColor\" ")
+    )
     |> Stream.map(&String.replace(&1, ~r/<path/, "  <path"))
     |> Stream.map(&build_function(&1, function_name(file_path)))
   end
