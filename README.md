@@ -16,7 +16,7 @@ by adding `phx_fontawesome` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:phx_fontawesome, "~> 0.1.0", organization: "intility"}
+    {:phx_fontawesome, "~> 1.0.0", organization: "intility"}
   ]
 end
 ```
@@ -58,8 +58,8 @@ $ mix phx_fontawesome.generate
 Once generated, the `heex` components are part of your project, and can be used as a regular `Phoenix.Component`.
 
 ```html
-<PhxFontawesomeFree.Solid.angle_up class="my-custom-class" />
-<PhxFontawesomeFree.Regular.render icon="angle_down" class="my-custom-class" />
+<PhxFontawesomeFree.Solid.angle_up />
+<PhxFontawesomeFree.Regular.render icon="angle_down" />
 ```
 
 If you would like to apply the default styling for SVG elements, simply include the Font Awesome CSS in your `app.css` file.
