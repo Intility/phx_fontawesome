@@ -15,8 +15,11 @@ defmodule PhxFontawesome.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: [
+        name: "phx_fontawesome",
+        files: ~w(lib .formatter.exs mix.exs README.md LICENSE),
+        licenses: ["MIT"],
         maintainers: ["Rolf Håvard Blindheim <rolf.havard.blindheim@intility.no>"],
-        links: %{Gitlab: @source_url}
+        links: %{"GitHub" => @source_url}
       ],
       docs: [
         main: "readme",
