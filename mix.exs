@@ -35,7 +35,9 @@ defmodule PhxFontawesome.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_doc, "~> 0.28.4", only: [:dev, :test], runtime: false}
+      {:ex_doc, "~> 0.28.4", only: [:dev, :test], runtime: false},
+      {:phoenix, "~> 1.6"},
+      {:phoenix_live_view, "~> 0.17"}
     ]
   end
 end
