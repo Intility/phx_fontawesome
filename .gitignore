@@ -36,4 +36,4 @@ npm-debug.log
 /assets/node_modules/
 
 # Ignore generated heex components
-/lib/phx_fontawesome/*.ex
+/lib/phx_fontawesome/
