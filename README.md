@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="phoenix_logo.png" height="128">
+  <img src="logo.png" height="128">
   <h1 align="center">PhxFontawesome</h1>
   <p align="center">
     A simple Mix task that generates Phoenix (heex) Components from FontAwesome SVG files.
