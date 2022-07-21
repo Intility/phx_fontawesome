@@ -1,14 +1,14 @@
 defmodule PhxFontawesome.MixProject do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.1.1"
   @source_url "https://github.com/Intility/phx_fontawesome"
 
   def project do
     [
       app: :phx_fontawesome,
       description:
-        "A simple Mix task that generates Phoenix Components from FontAwesome SVG files.",
+        "A simple Mix task that generates Phoenix Components from Font Awesome SVG files.",
       version: @version,
       elixir: "~> 1.13",
       elixirc_paths: elixirc_paths(Mix.env()),

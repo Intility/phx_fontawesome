@@ -2,7 +2,7 @@
   <img src="assets/logo.png" height="128">
   <h1 align="center">PhxFontawesome</h1>
   <p align="center">
-    A simple Mix task that generates Phoenix Components from FontAwesome SVG files.
+    A simple Mix task that generates Phoenix Components from Font Awesome SVG files.
   </p>
 </p>
 
@@ -25,7 +25,7 @@ end
 
 **Step 1 - Install desired font set**
 
-In your Phoenix project, install desired font set using `npm` or `yarn`. Please consult the Fontawesome
+In your Phoenix project, install desired font set using `npm` or `yarn`. Please consult the Font Awesome
 [documentation](https://fontawesome.com/docs/web/setup/packages) if you run into any trouble here.
 
 ```shell
@@ -62,8 +62,16 @@ Once generated, the `heex` components are part of your project, and can be used 
 <PhxFontawesomeFree.Regular.render icon="angle_down" class="my-custom-class" />
 ```
 
-Keep in mind that if you're using the non-free version of Fontawesome, make sure that you don't publish the
-generated components as that would be considered a licensing breach, so it could be wise to add `/lib/phx_fontawesome/` to your `.gitignore` file.
+If you would like to apply the default styling for SVG elements, simply include the Font Awesome CSS in your `app.css` file.
+
+```css
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+```
+
+Keep in mind that if you're using the non-free version of Font Awesome, make sure that you don't publish the
+generated components as that would be a licensing breach.
+Consider adding `/lib/phx_fontawesome/` to your `.gitignore` file, and use `mix phx_fontawesome.generate` in your deployment
+pipeline to build SVG components for deployed applications.
 
 ### Credits
 

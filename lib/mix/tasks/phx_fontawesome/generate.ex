@@ -6,7 +6,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
   @src_path "./assets/node_modules/@fortawesome"
   @dest_path "./lib/phx_fontawesome"
 
-  @shortdoc "Short doc here"
+  @shortdoc "Convert source SVG files into Phoenix components."
   def run(_) do
     sets = Application.get_env(:phx_fontawesome, :types) || ["regular", "solid"]
 
@@ -119,7 +119,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
       def #{name}(assigns) do
         assigns =
           assigns
-          |> assign_new(:class, fn -> nil end)
+          |> assign_new(:class, fn -> "svg-inline--fa fa-fw #{class_for(name)}" end)
           |> assign_new(:rest, fn -> assigns_to_attributes(assigns, ~w(class)a) end)
 
         ~H\"\"\"
@@ -135,6 +135,19 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
     |> String.replace("-", "_")
     |> ensure_valid_function_name()
   end
+
+  @spec class_for(String.t()) :: String.t()
+  defp class_for("zero"), do: "fa-0"
+  defp class_for("one"), do: "fa-1"
+  defp class_for("two"), do: "fa-2"
+  defp class_for("three"), do: "fa-3"
+  defp class_for("four"), do: "fa-4"
+  defp class_for("five"), do: "fa-5"
+  defp class_for("six"), do: "fa-6"
+  defp class_for("seven"), do: "fa-7"
+  defp class_for("eight"), do: "fa-8"
+  defp class_for("nine"), do: "fa-9"
+  defp class_for(name), do: "fa-#{String.replace(name, "_", "-")}"
 
   @spec ensure_valid_function_name(String.t()) :: String.t()
   defp ensure_valid_function_name("0"), do: "zero"
