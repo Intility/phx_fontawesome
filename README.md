@@ -31,6 +31,8 @@ In your Phoenix project, install desired font set using `npm` or `yarn`. Please 
 ```shell
 $ cd assets/
 $ yarn add @fortawesome/fontawesome-free
+# or
+$ yarn add @fortawesome/fontawesome-pro     # needs a license
 ```
 
 **Step 2 - Choose font set types to generate**
