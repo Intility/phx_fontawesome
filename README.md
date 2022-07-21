@@ -10,13 +10,13 @@
 
 ## Installation
 
-This package is not yet [available in Hex](https://hex.pm/docs/publish), so for now you'll have to install it
+This package is [available in Hex](https://hex.pm/packages/phx_fontawesome), and can be installed
 by adding `phx_fontawesome` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:phx_fontawesome, git: https://github.com/Intility/phx_fontawesome.git, tag: "v1.0.0"}
+    {:phx_fontawesome, "~> 1.0.0"}
   ]
 end
 ```
@@ -57,10 +57,15 @@ $ mix phx_fontawesome.generate
 
 Once generated, the `heex` components are part of your project, and can be used as a regular `Phoenix.Component`.
 
-Keep in mind that if you're using the non-free version of Fontawesome, make sure that you don't publish the
-generated components as that would be considered a licensing breach, so it could be wise to add `/lib/phx_fontawesome/` to your `.gitignore` file.
-
 ```html
 <PhxFontawesomeFree.Solid.angle_up class="my-custom-class" />
 <PhxFontawesomeFree.Regular.render icon="angle_down" class="my-custom-class" />
 ```
+
+Keep in mind that if you're using the non-free version of Fontawesome, make sure that you don't publish the
+generated components as that would be considered a licensing breach, so it could be wise to add `/lib/phx_fontawesome/` to your `.gitignore` file.
+
+### Credits
+
+- Heavily inspired by the [Petal Components](https://github.com/petalframework/petal_components) project.
+- Logo comes from the [Font Awesome](https://commons.wikimedia.org/wiki/File:Font_Awesome_5_brands_phoenix-framework.svg) project.
