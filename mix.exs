@@ -20,7 +20,7 @@ defmodule PhxFontawesome.MixProject do
       ],
       docs: [
         main: "readme",
-        logo: "logo.png",
+        logo: "assets/logo.png",
         name: "PhxFontawesome",
         source_ref: "v#{@version}",
         source_url: @source_url,

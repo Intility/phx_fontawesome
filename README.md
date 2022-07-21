@@ -2,7 +2,7 @@
   <img src="assets/logo.png" height="128">
   <h1 align="center">PhxFontawesome</h1>
   <p align="center">
-    A simple Mix task that generates Phoenix (heex) Components from FontAwesome SVG files.
+    A simple Mix task that generates Phoenix Components from FontAwesome SVG files.
   </p>
 </p>
 
