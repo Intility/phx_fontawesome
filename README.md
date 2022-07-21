@@ -66,6 +66,7 @@ If you would like to apply the default styling for SVG elements, simply include 
 
 ```css
 @import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "@fortawesome/fontawesome-free/css/svg-with-js.min.css";
 ```
 
 Keep in mind that if you're using the non-free version of Font Awesome, make sure that you don't publish the
