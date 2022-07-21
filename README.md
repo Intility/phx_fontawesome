@@ -6,7 +6,7 @@
   </p>
 </p>
 
-![pipeline status](https://github.com/Intility/phx_fontawesome/actions/workflows/elixir.yml/badge.svg)
+![pipeline status](https://github.com/Intility/phx_fontawesome/actions/workflows/elixir.yml/badge.svg?event=push)
 
 ## Installation
 
