@@ -95,7 +95,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
 
     output_stream = File.stream!(dest_file, [:utf8, :delayed_write, :append], :line)
 
-    # Write file to output stream
+    # Write beginning of file to output stream
     Stream.run(Stream.into([file], output_stream))
 
     # Write all functions to output stream
