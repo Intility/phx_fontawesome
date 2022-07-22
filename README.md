@@ -68,7 +68,7 @@ Icon name can be the function or passed in as a type.
 <PhxFontawesome.Free.Solid.angle_up class="my-custom-class" />
 
 <!-- pass extra properties -->
-<PhxFontawesome.Free.Solid.angle_up foo="bar" />
+<PhxFontawesome.Free.Solid.angle_up title="Font Awesome angle-up icon" />
 ```
 
 If you would like to apply the default styling for SVG elements, simply include the Font Awesome CSS in your `app.css` file.

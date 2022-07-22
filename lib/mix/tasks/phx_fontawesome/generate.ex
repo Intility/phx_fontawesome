@@ -71,12 +71,18 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
     file = """
     defmodule #{module_name} do
       @moduledoc \"\"\"
-      Icon name can be the function or passed in as a type eg.
+      Icon name can be the function or passed in as a type.
 
       ## Example
 
-        <PhxFontawesome.Free.Solid.angle_up class="my-custom-class" />
-        <PhxFontawesome.Free.Regular.render icon="angle_down" class="my-custom-class" />
+          <PhxFontawesome.Free.Solid.angle_up />
+          <PhxFontawesome.Free.Regular.render icon="angle_up" />
+
+          <!-- override default classes  -->
+          <PhxFontawesome.Free.Solid.angle_up class="my-custom-class" />
+
+          <!-- pass extra properties -->
+          <PhxFontawesome.Free.Solid.angle_up title="Font Awesome angle-up icon" />
 
       \"\"\"
       use Phoenix.Component
@@ -121,7 +127,8 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
   defp build_function(svg_data, name) do
     """
       @doc \"\"\"
-      Renders a Font Awesome `#{String.replace(name, "_", "-")}` SVG icon.
+      Renders a Font Awesome
+      [#{String.replace(name, "_", "-")}](https://fontawesome.com/search?q=#{String.replace(name, "_", "-")}) SVG icon.
 
       ## Props
 
