@@ -163,12 +163,12 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
 
       ## Example
 
+        Maybe you want to alias the free font set to just Fontawesome.
+
           defmodule MyFontawesome do
             defmacro __using__(_) do
              quote do
-                if Code.ensure_loaded?(Phx#{module_name}) do
-                  alias Phx#{module_name}, as: Fontawesome
-                end
+                alias Phx#{module_name}, as: Fontawesome
               end
             end
           end
@@ -178,10 +178,10 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
 
           defmodule MyButtonComponent do
             use MyFontawesome
-            alias Fontawesome
 
             ...
           end
+
       \"\"\"
     end
     """
