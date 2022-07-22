@@ -16,7 +16,7 @@ by adding `phx_fontawesome` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:phx_fontawesome, "~> 1.0.0", organization: "intility"}
+    {:phx_fontawesome, "~> 1.1.0", organization: "intility"}
   ]
 end
 ```
