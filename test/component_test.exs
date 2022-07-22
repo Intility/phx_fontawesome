@@ -1,13 +1,13 @@
-defmodule PhxFontawesomeFreeTest do
+defmodule PhxFontawesome.FreeTest do
   use ComponentCase
-  alias PhxFontawesomeFree
+  alias PhxFontawesome.Free
 
   test "can render fontawesome-free solid icon with current color correctly" do
     assigns = %{}
 
     html =
       rendered_to_string(~H"""
-      <PhxFontawesomeFree.Solid.basketball />
+      <PhxFontawesome.Free.Solid.basketball />
       """)
 
     assert html =~ "<svg class="
@@ -19,7 +19,7 @@ defmodule PhxFontawesomeFreeTest do
 
     html =
       rendered_to_string(~H"""
-      <PhxFontawesomeFree.Solid.render icon="basketball" />
+      <PhxFontawesome.Free.Solid.render icon="basketball" />
       """)
 
     assert html =~ "<svg class="
@@ -27,7 +27,7 @@ defmodule PhxFontawesomeFreeTest do
 
     html =
       rendered_to_string(~H"""
-      <PhxFontawesomeFree.Solid.render icon={:basketball} />
+      <PhxFontawesome.Free.Solid.render icon={:basketball} />
       """)
 
     assert html =~ "<svg class="
@@ -39,7 +39,7 @@ defmodule PhxFontawesomeFreeTest do
 
     html =
       rendered_to_string(~H"""
-      <PhxFontawesomeFree.Regular.user />
+      <PhxFontawesome.Free.Regular.user />
       """)
 
     assert html =~ "<svg class="
@@ -51,7 +51,7 @@ defmodule PhxFontawesomeFreeTest do
 
     html =
       rendered_to_string(~H"""
-      <PhxFontawesomeFree.Regular.render icon="user" />
+      <PhxFontawesome.Free.Regular.render icon="user" />
       """)
 
     assert html =~ "<svg class="
@@ -59,7 +59,7 @@ defmodule PhxFontawesomeFreeTest do
 
     html =
       rendered_to_string(~H"""
-      <PhxFontawesomeFree.Regular.render icon={:user} />
+      <PhxFontawesome.Free.Regular.render icon={:user} />
       """)
 
     assert html =~ "<svg class="
@@ -71,7 +71,7 @@ defmodule PhxFontawesomeFreeTest do
 
     html =
       rendered_to_string(~H"""
-      <PhxFontawesomeFree.Regular.user zoid="berg" />
+      <PhxFontawesome.Free.Regular.user zoid="berg" />
       """)
 
     assert html =~ "zoid"

@@ -51,24 +51,31 @@ From your project root, run `mix phx_fontawesome.generate` to create components.
 
 ```shell
 $ mix phx_fontawesome.generate
-[info]  Successfully wrote /path/to/project/my_project/lib/phx_fontawesome/fontawesome_free/regular.ex (containing 162 SVG components).
-[info]  Successfully wrote /path/to/project/my_project/lib/phx_fontawesome/fontawesome_free/solid.ex (containing 1385 SVG components).
+[info]  Successfully wrote /path/to/my_project/lib/phx_fontawesome/fontawesome_free/regular.ex (containing 162 SVG components).
+[info]  Successfully wrote /path/to/my_project/lib/phx_fontawesome/fontawesome_free/solid.ex (containing 1385 SVG components).
 ```
 
 ## Usage
 
 Once generated, the `heex` components are part of your project, and can be used as a regular `Phoenix.Component`.
+Icon name can be the function or passed in as a type.
 
 ```html
-<PhxFontawesomeFree.Solid.angle_up />
-<PhxFontawesomeFree.Regular.render icon="angle_down" />
+<PhxFontawesome.Free.Solid.angle_up />
+<PhxFontawesome.Free.Regular.render icon="angle_up" />
+
+<!-- override default classes  -->
+<PhxFontawesome.Free.Solid.angle_up class="my-custom-class" />
+
+<!-- pass extra properties -->
+<PhxFontawesome.Free.Solid.angle_up foo="bar" />
 ```
 
 If you would like to apply the default styling for SVG elements, simply include the Font Awesome CSS in your `app.css` file.
 
 ```css
-@import "@fortawesome/fontawesome-free/css/all.min.css";
-@import "@fortawesome/fontawesome-free/css/svg-with-js.min.css";
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "@fortawesome/fontawesome-free/css/svg-with-js.css";
 ```
 
 Keep in mind that if you're using the non-free version of Font Awesome, make sure that you don't publish the

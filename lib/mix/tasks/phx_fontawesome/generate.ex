@@ -12,7 +12,10 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
 
     with {:ok, name} <- File.ls(@src_path),
          fontsets <- Enum.zip(name, Enum.map(name, &list_fontsets(&1, sets))) do
-      for {namespace, fontset} <- fontsets, do: Enum.each(fontset, &build_module(namespace, &1))
+      for {namespace, fontset} <- fontsets do
+        build_context_module(namespace)
+        Enum.each(fontset, &build_module(namespace, &1))
+      end
     else
       {:error, :enoent} ->
         Logger.error(
@@ -59,11 +62,11 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
     do: {:ok, MapSet.new(a) |> MapSet.intersection(MapSet.new(b)) |> MapSet.to_list()}
 
   @spec build_module(String.t(), {String.t(), [String.t()]}) :: :ok
-  defp build_module(ns, {fontset, files}) when is_list(files) do
+  defp build_module(namespace, {fontset, files}) when is_list(files) do
     module_name =
-      with module_name <- String.split(ns, "-") |> Enum.map(&String.capitalize/1) |> Enum.join(),
+      with namespace_name <- namespace_name(namespace),
            fontset_name <- Path.basename(fontset) |> String.capitalize(),
-           do: "Phx#{module_name}.#{fontset_name}"
+           do: "Phx#{namespace_name}.#{fontset_name}"
 
     file = """
     defmodule #{module_name} do
@@ -72,8 +75,8 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
 
       ## Example
 
-        <PhxFontawesomeFree.Solid.angle_up class="my-custom-class" />
-        <PhxFontawesomeFree.Regular.render icon="angle_down" class="my-custom-class" />
+        <PhxFontawesome.Free.Solid.angle_up class="my-custom-class" />
+        <PhxFontawesome.Free.Regular.render icon="angle_down" class="my-custom-class" />
 
       \"\"\"
       use Phoenix.Component
@@ -88,7 +91,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
       end
     """
 
-    dest_path = Path.join([@dest_path, String.replace(ns, "-", "_")])
+    dest_path = Path.join([@dest_path, String.replace(namespace, "-", "_")])
     dest_file = Path.join(dest_path, "#{Path.basename(fontset)}.ex")
     unless File.exists?(dest_path), do: File.mkdir_p!(dest_path)
     if File.exists?(dest_file), do: File.rm!(dest_file)
@@ -114,8 +117,21 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
     )
   end
 
+  @spec build_function(String.t(), String.t()) :: String.t()
   defp build_function(svg_data, name) do
     """
+      @doc \"\"\"
+      Renders a Font Awesome `#{String.replace(name, "_", "-")}` SVG icon.
+
+      ## Props
+
+        * `class` - `:string` - CSS class applied to the SVG element.
+          - default value: `svg-inline--fa fa-fw #{class_for(name)}`
+        * `rest` - properties - Any prop except `:class` that should be applied to the SVG element.
+          - example: `title=\"tooltip-title\"`
+
+      Renders to default slot.
+      \"\"\"
       def #{name}(assigns) do
         assigns =
           assigns
@@ -128,6 +144,53 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
       end
     """
   end
+
+  @spec build_context_module(String.t()) :: String.t()
+  defp build_context_module(namespace) do
+    module_name = namespace_name(namespace)
+
+    file = """
+    defmodule Phx#{module_name} do
+      @moduledoc \"\"\"
+      You can use this module to check if a specific font is available.
+
+      ## Example
+
+          defmodule MyFontawesome do
+            defmacro __using__(_) do
+             quote do
+                if Code.ensure_loaded?(Phx#{module_name}) do
+                  alias Phx#{module_name}, as: Fontawesome
+                end
+              end
+            end
+          end
+
+
+        And in your Phoenix components:
+
+          defmodule MyButtonComponent do
+            use MyFontawesome
+            alias Fontawesome
+
+            ...
+          end
+      \"\"\"
+    end
+    """
+
+    dest_path = Path.join([@dest_path, String.replace(namespace, "-", "_")])
+    dest_file = "#{dest_path}.ex"
+    unless File.exists?(@dest_path), do: File.mkdir_p!(@dest_path)
+    if File.exists?(dest_file), do: File.rm!(dest_file)
+
+    output_stream = File.stream!(dest_file, [:utf8], :line)
+    Stream.run(Stream.into([file], output_stream))
+  end
+
+  @spec namespace_name(String.t()) :: String.t()
+  defp namespace_name(namespace),
+    do: String.split(namespace, "-") |> Enum.map(&String.capitalize/1) |> Enum.join(".")
 
   @spec function_name(String.t()) :: String.t()
   defp function_name(name) do
