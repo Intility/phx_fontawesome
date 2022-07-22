@@ -1,7 +1,7 @@
 defmodule PhxFontawesome.MixProject do
   use Mix.Project
 
-  @version "1.1.0"
+  @version "1.1.1"
   @source_url "https://github.com/Intility/phx_fontawesome"
 
   def project do
@@ -16,7 +16,6 @@ defmodule PhxFontawesome.MixProject do
       deps: deps(),
       package: [
         name: "phx_fontawesome",
-        organization: "intility",
         files:
           ~w(lib/mix/tasks/phx_fontawesome/generate.ex lib/phx_fontawesome.ex .formatter.exs mix.exs README.md LICENSE),
         licenses: ["MIT"],

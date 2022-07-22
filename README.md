@@ -10,13 +10,13 @@
 
 ## Installation
 
-This package is [available in Hex](https://hex.pm/packages/intility/phx_fontawesome), and can be installed
+This package is [available in Hex](https://hex.pm/packages/phx_fontawesome), and can be installed
 by adding `phx_fontawesome` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:phx_fontawesome, "~> 1.1.0", organization: "intility"}
+    {:phx_fontawesome, "~> 1.1.1"}
   ]
 end
 ```
