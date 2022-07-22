@@ -160,23 +160,20 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
     defmodule Phx#{module_name} do
       @moduledoc \"\"\"
       You can use this module to check if a specific font is available.
-
-      ## Example
-
-        Maybe you want to alias the free font set to just Fontawesome.
+      Maybe you want to alias the font set to just Fontawesome.
 
           defmodule MyFontawesome do
             defmacro __using__(_) do
-             quote do
+              quote do
                 alias Phx#{module_name}, as: Fontawesome
               end
             end
           end
 
 
-        And in your Phoenix components:
+      And in your Phoenix components:
 
-          defmodule MyButtonComponent do
+          defmodule MyComponent do
             use MyFontawesome
 
             ...
