@@ -53,20 +53,24 @@ config :phx_fontawesome,
 
 **Step 3 - Generate component files**
 
-From your project root, run `mix phx_fontawesome.generate` to create components. Generated files will be available in your
+From your project root, run `mix phx_fontawesome.generate` to create components files. Generated components will be available in your
 `deps/phx_fontawesome/lib/phx_fontawesome` directory (unless using a custom path).
-
-**Remember to run `mix deps.compile phx_fontawesome` after generating files to compile the components!**
 
 ```shell
 $ mix phx_fontawesome.generate
 [info]  Successfully wrote /my_project/deps/phx_fontawesome/lib/phx_fontawesome/fontawesome_free/regular.ex (containing 162 SVG components).
 [info]  Successfully wrote /my_project/deps/phx_fontawesome/lib/phx_fontawesome/fontawesome_free/solid.ex (containing 1385 SVG components).
+$ mix deps.compile phx_fontawesome
+==> phx_fontawesome
+Compiling 3 files (.ex)
+...
 ```
+
+**Remember to run `mix deps.compile phx_fontawesome` after generating files to compile the components!**
 
 ## Usage
 
-Once generated, the `heex` components are part of your project, and can be used as a regular `Phoenix.Component`.
+Once generated, the `heex` components are available to your project, and can be used as a regular `Phoenix.Component`.
 Icon name can be the function or passed in as a type.
 
 ```html
@@ -89,10 +93,8 @@ If you would like to apply the default styling for SVG elements, simply include 
 
 Keep in mind that if you're using the non-free version of Font Awesome, make sure that you don't publish the
 generated components as that would be a licensing breach.
-Consider adding `/lib/phx_fontawesome/` to your `.gitignore` file, and use `mix phx_fontawesome.generate` in your deployment
-pipeline to build SVG components for deployed applications.
 
 ### Credits
 
-- Heavily inspired by the [Petal Components](https://github.com/petalframework/petal_components) project.
+- Component generator inspired by the [Petal Components](https://github.com/petalframework/petal_components) project.
 - Logo comes from the [Font Awesome](https://commons.wikimedia.org/wiki/File:Font_Awesome_5_brands_phoenix-framework.svg) project.
