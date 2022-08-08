@@ -4,7 +4,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
   require Logger
 
   @src_path "./assets/node_modules/@fortawesome"
-  @dest_path "./lib/phx_fontawesome"
+  @dest_path "./deps/phx_fontawesome/lib/phx_fontawesome"
 
   @shortdoc "Convert source SVG files into Phoenix components."
   def run(_) do
@@ -97,7 +97,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
       end
     """
 
-    dest_path = Path.join([@dest_path, String.replace(namespace, "-", "_")])
+    dest_path = Path.join([dest_path(), String.replace(namespace, "-", "_")])
     dest_file = Path.join(dest_path, "#{Path.basename(fontset)}.ex")
     unless File.exists?(dest_path), do: File.mkdir_p!(dest_path)
     if File.exists?(dest_file), do: File.rm!(dest_file)
@@ -183,14 +183,17 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
     end
     """
 
-    dest_path = Path.join([@dest_path, String.replace(namespace, "-", "_")])
+    dest_path = Path.join([dest_path(), String.replace(namespace, "-", "_")])
     dest_file = "#{dest_path}.ex"
-    unless File.exists?(@dest_path), do: File.mkdir_p!(@dest_path)
+    unless File.exists?(dest_path()), do: File.mkdir_p!(dest_path())
     if File.exists?(dest_file), do: File.rm!(dest_file)
 
     output_stream = File.stream!(dest_file, [:utf8], :line)
     Stream.run(Stream.into([file], output_stream))
   end
+
+  @spec dest_path() :: String.t()
+  defp dest_path, do: Application.get_env(:phx_fontawesome, :dest_path) || @dest_path
 
   @spec namespace_name(String.t()) :: String.t()
   defp namespace_name(namespace),

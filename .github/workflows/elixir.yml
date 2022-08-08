@@ -42,6 +42,8 @@ jobs:
           cd assets
           yarn install
       - name: Generate Phoenix Components
-        run: mix phx_fontawesome.generate
+        run: |
+          mix phx_fontawesome.generate
+          mix compile
       - name: Run test suite
         run: mix test

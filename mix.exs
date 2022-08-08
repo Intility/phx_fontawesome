@@ -1,7 +1,7 @@
 defmodule PhxFontawesome.MixProject do
   use Mix.Project
 
-  @version "1.1.1"
+  @version "1.2.0"
   @source_url "https://github.com/Intility/phx_fontawesome"
 
   def project do
@@ -35,7 +35,7 @@ defmodule PhxFontawesome.MixProject do
     ]
   end
 
-  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(:test), do: ["lib", "test/support", "deps/phx_fontawesome/lib"]
   defp elixirc_paths(_), do: ["lib"]
 
   def application do

@@ -16,7 +16,7 @@ by adding `phx_fontawesome` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:phx_fontawesome, "~> 1.1.1"}
+    {:phx_fontawesome, "~> 1.2"}
   ]
 end
 ```
@@ -44,15 +44,24 @@ config :phx_fontawesome,
   types: ["regular", "solid"]
 ```
 
+Additionally, you may override the default location for generated files (`deps/phx_fontawesome/lib`).
+
+```elixir
+config :phx_fontawesome,
+  dest_path: "./lib/phx_fontawesome"  # includes generated files in your projects lib/ directory
+```
+
 **Step 3 - Generate component files**
 
 From your project root, run `mix phx_fontawesome.generate` to create components. Generated files will be available in your
-`lib/phx_fontawesome` directory.
+`deps/phx_fontawesome/lib/phx_fontawesome` directory (unless using a custom path).
+
+**Remember to run `mix deps.compile phx_fontawesome` after generating files to compile the components!**
 
 ```shell
 $ mix phx_fontawesome.generate
-[info]  Successfully wrote /path/to/my_project/lib/phx_fontawesome/fontawesome_free/regular.ex (containing 162 SVG components).
-[info]  Successfully wrote /path/to/my_project/lib/phx_fontawesome/fontawesome_free/solid.ex (containing 1385 SVG components).
+[info]  Successfully wrote /my_project/deps/phx_fontawesome/lib/phx_fontawesome/fontawesome_free/regular.ex (containing 162 SVG components).
+[info]  Successfully wrote /my_project/deps/phx_fontawesome/lib/phx_fontawesome/fontawesome_free/solid.ex (containing 1385 SVG components).
 ```
 
 ## Usage
