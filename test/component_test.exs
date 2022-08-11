@@ -1,6 +1,5 @@
 defmodule PhxFontawesome.FreeTest do
   use ComponentCase
-  alias PhxFontawesome.Free
 
   test "can render fontawesome-free solid icon with current color correctly" do
     assigns = %{}
@@ -76,5 +75,28 @@ defmodule PhxFontawesome.FreeTest do
 
     assert html =~ "zoid"
     assert html =~ "berg"
+  end
+
+  test "can set custom css classes" do
+    assigns = %{}
+
+    html =
+      rendered_to_string(~H"""
+      <PhxFontawesome.Free.Regular.user class="my-custom-class" />
+      """)
+
+    assert html =~ "fa-user my-custom-class"
+  end
+
+  test "can unset default css classes" do
+    assigns = %{}
+
+    html =
+      rendered_to_string(~H"""
+      <PhxFontawesome.Free.Regular.user class="!fa-user my-custom-class" />
+      """)
+
+    assert html =~ "my-custom-class"
+    refute html =~ "fa-user"
   end
 end

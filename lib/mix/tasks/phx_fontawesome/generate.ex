@@ -86,6 +86,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
 
       \"\"\"
       use Phoenix.Component
+      import PhxComponentHelpers, only: [extend_class: 3]
 
       def render(%{icon: icon_name} = assigns) when is_atom(icon_name) do
         apply(__MODULE__, icon_name, [assigns])
@@ -133,17 +134,18 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
       ## Props
 
         * `class` - `:string` - CSS class applied to the SVG element.
-          - default value: `svg-inline--fa fa-fw #{class_for(name)}`
+          - Default value: `svg-inline--fa fa-fw #{class_for(name)}`
+          - Override default values by prefixing the class with `!`, ie. `class="!fa-fw my-custom-class"`
         * `rest` - properties - Any prop except `:class` that should be applied to the SVG element.
-          - example: `title=\"tooltip-title\"`
+          - Example: `title=\"tooltip-title\"`
 
       Renders to default slot.
       \"\"\"
       def #{name}(assigns) do
         assigns =
           assigns
-          |> assign_new(:class, fn -> "svg-inline--fa fa-fw #{class_for(name)}" end)
-          |> assign_new(:rest, fn -> assigns_to_attributes(assigns, ~w(class)a) end)
+          |> extend_class("svg-inline--fa fa-fw #{class_for(name)}", prefix_replace: false)
+          |> assign_new(:rest, fn -> assigns_to_attributes(assigns, ~w(class heex_class)a) end)
 
         ~H\"\"\"
         #{svg_data}
@@ -237,7 +239,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
     File.stream!(file_path)
     |> Stream.map(&String.trim/1)
     |> Stream.map(
-      &String.replace(&1, ~r/<svg /, "<svg class={@class} {@rest} fill=\"currentColor\" ")
+      &String.replace(&1, ~r/<svg /, "<svg {@heex_class} {@rest} fill=\"currentColor\" ")
     )
     |> Stream.map(&String.replace(&1, ~r/<path/, "  <path"))
     |> Stream.map(&build_function(&1, function_name(file_path)))

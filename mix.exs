@@ -1,7 +1,7 @@
 defmodule PhxFontawesome.MixProject do
   use Mix.Project
 
-  @version "1.2.0"
+  @version "1.2.1"
   @source_url "https://github.com/Intility/phx_fontawesome"
 
   def project do
@@ -49,7 +49,8 @@ defmodule PhxFontawesome.MixProject do
       {:ex_doc, "~> 0.28.4", only: [:dev, :test], runtime: false},
       {:jason, "~> 1.0", only: [:dev, :test]},
       {:phoenix, "~> 1.6"},
-      {:phoenix_live_view, "~> 0.17"}
+      {:phoenix_live_view, "~> 0.17"},
+      {:phx_component_helpers, "~> 1.1"}
     ]
   end
 end
