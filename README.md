@@ -77,8 +77,11 @@ Icon name can be the function or passed in as a type.
 <PhxFontawesome.Free.Solid.angle_up />
 <PhxFontawesome.Free.Regular.render icon="angle_up" />
 
-<!-- override default classes  -->
+<!-- append custom classes  -->
 <PhxFontawesome.Free.Solid.angle_up class="my-custom-class" />
+
+<!-- remove default classes by prefixing wiht "!"  -->
+<PhxFontawesome.Free.Solid.angle_up class="!fa-angle-up" />
 
 <!-- pass extra properties -->
 <PhxFontawesome.Free.Solid.angle_up title="Font Awesome angle-up icon" />
