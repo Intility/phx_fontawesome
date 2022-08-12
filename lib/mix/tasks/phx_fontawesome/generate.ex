@@ -96,6 +96,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
         icon_name = String.to_existing_atom(icon_name)
         apply(__MODULE__, icon_name, [assigns])
       end
+
     """
 
     dest_path = Path.join([dest_path(), String.replace(namespace, "-", "_")])
@@ -151,6 +152,7 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
         #{svg_data}
         \"\"\"
       end
+
     """
   end
 
