@@ -221,6 +221,8 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
   defp class_for("seven"), do: "fa-7"
   defp class_for("eight"), do: "fa-8"
   defp class_for("nine"), do: "fa-9"
+  defp class_for("fourty_two_group"), do: "fa-42-group"
+  defp class_for("five_hundred_px"), do: "fa-500px"
   defp class_for(name), do: "fa-#{String.replace(name, "_", "-")}"
 
   @spec ensure_valid_function_name(String.t()) :: String.t()
@@ -234,6 +236,8 @@ defmodule Mix.Tasks.PhxFontawesome.Generate do
   defp ensure_valid_function_name("7"), do: "seven"
   defp ensure_valid_function_name("8"), do: "eight"
   defp ensure_valid_function_name("9"), do: "nine"
+  defp ensure_valid_function_name("42_group"), do: "fourty_two_group"
+  defp ensure_valid_function_name("500px"), do: "five_hundred_px"
   defp ensure_valid_function_name(name), do: name
 
   @spec stream_file(String.t()) :: Stream.t()
