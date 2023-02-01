@@ -65,6 +65,38 @@ defmodule PhxFontawesome.FreeTest do
     assert html =~ "currentColor"
   end
 
+  test "can render fontawesome-free regular icon by type via render component" do
+    assigns = %{}
+
+    html =
+      rendered_to_string(~H"""
+      <PhxFontawesome.render icon="user" set="free" type="regular" />
+      """)
+
+    assert html =~ "<svg class="
+    assert html =~ "icon=\"user\" set=\"free\" type=\"regular\""
+  end
+
+  test "raises error when trying to render a non-existing icon" do
+    assigns = %{}
+
+    assert_raise FunctionClauseError,
+                 "no function clause matching in PhxFontawesome.render/1",
+                 fn ->
+                   rendered_to_string(~H"""
+                   <PhxFontawesome.render icon="user", set="invalid" type="regular" />
+                   """)
+                 end
+
+    assert_raise ArgumentError,
+                 "could not load module PhxFontawesome.Pro.Regular due to reason :nofile",
+                 fn ->
+                   rendered_to_string(~H"""
+                   <PhxFontawesome.render icon="user", set="pro" type="regular" />
+                   """)
+                 end
+  end
+
   test "can forward extra params to the underlying svg element" do
     assigns = %{}
 
