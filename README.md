@@ -1,12 +1,13 @@
-<p align="center">
+<div align="center">
   <img src="assets/logo.png" height="128">
   <h1 align="center">PhxFontawesome</h1>
-  <p align="center">
-    A simple Mix task that generates Phoenix Components from Font Awesome SVG files.
-  </p>
-</p>
+</div>
 
 ![pipeline status](https://github.com/Intility/phx_fontawesome/actions/workflows/elixir.yml/badge.svg?event=push)
+
+## About
+
+A simple Mix task that generates Phoenix Components from Font Awesome SVG files.
 
 ## Installation
 
@@ -82,7 +83,7 @@ defmodule MyProject.MixProject do
     [
       "lib",
       "test/support",
-      "deps/phx_fontawesome/lib/phx_fontawesome"
+      "deps/phx_fontawesome/lib/phx_fontawesome"  # add this line
     ]
   end
 end
