@@ -70,6 +70,24 @@ Compiling 3 files (.ex)
 
 ## Usage
 
+If using the default `dest_path`, you need to add `deps/phx_fontawesome/lib/phx_fontawesome` to your `elixirc_paths`.
+
+```elixir
+# mix.exs
+defmodule MyProject.MixProject do
+
+  # snip...
+
+  defp elixirc_paths(_env) do
+    [
+      "lib",
+      "test/support",
+      "deps/phx_fontawesome/lib/phx_fontawesome"
+    ]
+  end
+end
+```
+
 Once generated, the `heex` components are available to your project, and can be used as a regular `Phoenix.Component`.
 Icon name can be the function or passed in as a type.
 
