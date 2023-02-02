@@ -12,7 +12,7 @@ defmodule PhxFontawesome do
       <!-- Render the user icon from the regular free set -->
       <PhxFontawesome icon="user" set="free" type="regular" />
 
-      <!-- Render te user icon from the solid pro set -->
+      <!-- Render the user icon from the solid pro set -->
       <PhxFontawesome icon="user" set="pro" type="solid" />
   """
   def render(%{icon: _icon_name, set: "free", type: "regular"} = assigns),
