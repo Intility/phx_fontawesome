@@ -7,7 +7,8 @@
 
 ## About
 
-A simple Mix task that generates Phoenix Components from Font Awesome SVG files.
+A simple Mix task that generates Phoenix Components from Font Awesome SVG files. Documentation is available
+[here](https://hexdocs.pm/phx_fontawesome).
 
 ## Installation
 
