@@ -74,6 +74,10 @@ Once generated, the `heex` components are available to your project, and can be 
 Icon name can be the function or passed in as a type.
 
 ```html
+<!-- Use the PhxFontawesome component and pass all required props -->
+<PhxFontawesome.render icon="angle_up" set="free" type="regular" />
+
+<!-- Or use the generated components directly -->
 <PhxFontawesome.Free.Solid.angle_up />
 <PhxFontawesome.Free.Regular.render icon="angle_up" />
 
